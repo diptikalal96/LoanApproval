@@ -217,3 +217,5 @@ C:\Work\BankPOC\LoanApproval\LoanApproval\obj\Release\netcoreapp2.1\LoanApproval
 C:\Work\BankPOC\LoanApproval\LoanApproval\obj\Release\netcoreapp2.1\LoanApproval.csproj.CopyComplete
 C:\Work\BankPOC\LoanApproval\LoanApproval\obj\Release\netcoreapp2.1\LoanApproval.dll
 C:\Work\BankPOC\LoanApproval\LoanApproval\obj\Release\netcoreapp2.1\LoanApproval.pdb
+C:\Work\BankPOC\LoanApproval\LoanApproval\bin\Release\netcoreapp2.1\Amazon.Lambda.SQSEvents.dll
+C:\Work\BankPOC\LoanApproval\LoanApproval\bin\Release\netcoreapp2.1\AWSSDK.SQS.dll

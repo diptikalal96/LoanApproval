@@ -4,8 +4,10 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Web;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
-namespace ApplicationSubmission.Model
+namespace LoanApproval.Model
 {
     public class DBHelper
     {
@@ -15,6 +17,8 @@ namespace ApplicationSubmission.Model
         MySqlDataReader _reader = null;
 
         string _sLogFilePath = string.Empty;
+
+        public static string conStr;
 
         /// <summary>
         /// Constructor of the class 
@@ -32,7 +36,7 @@ namespace ApplicationSubmission.Model
 
         public string GetConnStr()
         {
-            string sConnectionString = "server = applicationsubmission.cikv7fwlsku8.ap-south-1.rds.amazonaws.com; port=3306; uid=admin; pwd=admin8910; database=ApplicationSubmission";
+            string sConnectionString = conStr;
             return sConnectionString;
         }
 

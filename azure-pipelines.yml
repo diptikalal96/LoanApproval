@@ -26,7 +26,7 @@ steps:
   displayName: 'dotnet build'
   
 - script: | 
-    dotnet publish LoanApproval.sln -o "Publish -c Release"
+    dotnet publish LoanApproval.sln -o "Publish" -c Release
     ls 
     pwd
   displayName: 'dotnet build'

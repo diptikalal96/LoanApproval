@@ -39,11 +39,15 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
     
-- task: LambdaDeployFunction@1
+- task: LambdaNETCoreDeploy@1
   inputs:
     awsCredentials: 'awsconnection'
     regionName: 'ap-south-1'
-    deploymentMode: 'codeonly'
+    command: 'deployFunction'
+    packageOnly: true
+    packageOutputFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     functionName: 'LoanApproval'
-    codeLocation: 'localfile'
-    localZipFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    functionRole: 'ApplicationSubmission-LambdaExecutionRole-12JA4MGGXI2U4'
+    functionHandler: 'LoanApproval::LoanApproval.LambdaEntryPoint::FunctionHandlerAsync'
+    functionMemory: 512
+    functionTimeout: 60

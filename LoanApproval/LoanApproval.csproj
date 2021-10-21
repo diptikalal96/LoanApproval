@@ -5,6 +5,7 @@
     <AWSProjectType>Lambda</AWSProjectType>
     <!-- This property makes the build directory similar to a publish directory and helps the AWS .NET Lambda Mock Test Tool find project dependencies. -->
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <PreserveCompilationContext>false</PreserveCompilationContext> 
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.SQSEvents" Version="2.0.0" />

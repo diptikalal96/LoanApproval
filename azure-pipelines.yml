@@ -45,7 +45,7 @@ steps:
     regionName: 'ap-south-1'
     command: 'deployFunction'
     packageOnly: false
-    lambdaProjectPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    lambdaProjectPath: './LoanApproval'
     functionName: 'LoanApproval'
     functionRole: 'azure-lambda-role'
     functionHandler: 'LoanApproval::LoanApproval.LambdaEntryPoint::FunctionHandlerAsync'

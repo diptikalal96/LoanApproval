@@ -43,12 +43,10 @@ steps:
   inputs:
     awsCredentials: 'awsconnection'
     regionName: 'ap-south-1'
-    command: 'deployFunction'
+    command: 'deployServerless'
     packageOnly: false
     lambdaProjectPath: './LoanApproval'
-    functionName: 'LoanApproval'
-    functionRole: 'azure-lambda-role'
-    functionHandler: 'LoanApproval::LoanApproval.LambdaEntryPoint::FunctionHandlerAsync'
-    functionMemory: 512
-    functionTimeout: 60
-    additionalArgs: '--function-runtime dotnetcore2.1'
+    stackName: 'loanApproval'
+    s3Bucket: 'pblambdafunctions'
+    s3Prefix: 'LoanApproval'
+    additionalArgs: 'deploy-function LoanApproval --function-role azure-lambda-role'

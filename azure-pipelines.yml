@@ -46,7 +46,7 @@ steps:
     command: 'deployServerless'
     packageOnly: false
     lambdaProjectPath: './LoanApproval'
-    stackName: 'loanApproval'
+    stackName: 'LoanApproval'
     s3Bucket: 'pblambdafunctions'
     s3Prefix: 'LoanApproval'
     additionalArgs: 'deploy-function LoanApproval --function-role azure-lambda-role'

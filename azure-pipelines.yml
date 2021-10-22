@@ -51,3 +51,4 @@ steps:
     functionHandler: 'LoanApproval::LoanApproval.LambdaEntryPoint::FunctionHandlerAsync'
     functionMemory: 512
     functionTimeout: 60
+    additionalArgs: '--function-runtime dotnetcore2.1'

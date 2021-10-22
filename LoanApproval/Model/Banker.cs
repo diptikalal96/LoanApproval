@@ -8,7 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LoanApproval.Model
+
+namespace LoanApproval.Model 
 {
     public class Banker
     {
@@ -23,7 +24,8 @@ namespace LoanApproval.Model
         public DateTime LoanApplication_Date { get; set; }
         public string LoanApplication_Description { get; set; }
         public int LoanApplication_Status { get; set; }
-        public string LoanApplication_BankerComment { get; set; }
+        public string LoanApplication_BankerComment { get; set; } 
+        //testing
 
         public List<Banker> Get_All_Loan()
         {

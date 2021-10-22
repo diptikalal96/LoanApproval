@@ -16,20 +16,20 @@ steps:
 - script: | 
     dotnet restore LoanApproval.sln
     ls
-  displayName: 'dotnet restore'
+  displayName: 'dotnet Restore'
 
 - script: | 
     dotnet build LoanApproval.sln
     ls
     
     pwd
-  displayName: 'dotnet build'
+  displayName: 'dotnet Build'
   
 - script: | 
     dotnet publish LoanApproval.sln -o "Publish" -c Release
     ls 
     pwd
-  displayName: 'dotnet build'
+  displayName: 'dotnet Publish'
 
 - task: ArchiveFiles@2
   inputs:
@@ -39,12 +39,15 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
     
-- task: LambdaDeployFunction@1
+- task: LambdaNETCoreDeploy@1
   inputs:
     awsCredentials: 'awsconnection'
     regionName: 'ap-south-1'
-    deploymentMode: 'codeonly'
+    command: 'deployFunction'
+    packageOnly: false
+    lambdaProjectPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     functionName: 'LoanApproval'
-    codeLocation: 'localfile'
-    localZipFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    outputVariable: 'LoanApproval'
+    functionRole: 'azure-lambda-role'
+    functionHandler: 'LoanApproval::LoanApproval.LambdaEntryPoint::FunctionHandlerAsync'
+    functionMemory: 512
+    functionTimeout: 60
